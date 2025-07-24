@@ -1,29 +1,46 @@
 <div class="container">
-    <h2>Feedback Form</h2>
+  <h2>Feedback Form</h2>
 
-    <form #feedbackForm="ngForm" (ngSubmit)="onSubmit()">
-        <!-- Name -->
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="Name" [(ngModel)]="feedback.userName" required />
-        </div>
+  <form #feedbackForm="ngForm" (ngSubmit)="onSubmit()">
+    <!-- Name -->
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="Name" [(ngModel)]="feedback.userName" required />
+    </div>
 
+    <!-- Rating (Slider) -->
+    <div class="rating-slider-group">
+      <label for="rating">Rating:</label>
+      <div class="slider-row">
+        <input
+          type="range"
+          id="rating"
+          name="Rating"
+          [(ngModel)]="feedback.rating"
+          min="1"
+          max="5"
+          step="1"
+          required
+        />
+        <span class="slider-value">{{ feedback.rating }}</span>
+      </div>
+      <div class="slider-labels">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+      </div>
+    </div>
 
-        <!-- Rating -->
-        <div>
-            <label for="rating">Rating (1 to 5):</label>
-            <input type="number" id="rating" name="Rating" [(ngModel)]="feedback.rating" min="1" max="5" required />
-        </div>
+    <!-- Comments -->
+    <div>
+      <label for="comments">Comments:</label>
+      <textarea id="comments" name="Comments" [(ngModel)]="feedback.comments" rows="4"></textarea>
+    </div>
 
-        <!-- Comments -->
-        <div>
-            <label for="comments">Comments:</label>
-            <textarea id="comments" name="Comments" [(ngModel)]="feedback.comments" rows="4" style="width:100%;resize:vertical;"></textarea>
-        </div>
-
-        <!-- Submit -->
-        <button type="submit" [disabled]="!feedbackForm.form.valid">Submit</button>
-    </form>
-    <button (click)="adminhome()">AdminHome</button>
-
+    <!-- Submit -->
+    <button type="submit" [disabled]="!feedbackForm.form.valid">Submit</button>
+  </form>
+  <button (click)="adminhome()">AdminHome</button>
 </div>
