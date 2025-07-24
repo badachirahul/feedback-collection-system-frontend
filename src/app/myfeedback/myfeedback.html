@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Feedback Form</h2>
+
+    <form #feedbackForm="ngForm" (ngSubmit)="onSubmit()">
+        <!-- Name -->
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="Name" [(ngModel)]="feedback.userName" required />
+        </div>
+
+
+        <!-- Rating -->
+        <div>
+            <label for="rating">Rating (1 to 5):</label>
+            <input type="number" id="rating" name="Rating" [(ngModel)]="feedback.rating" min="1" max="5" required />
+        </div>
+
+        <!-- Comments -->
+        <div>
+            <label for="comments">Comments:</label><br />
+            <input type="text" id="comments" name="Comments" [(ngModel)]="feedback.comments" rows="4" />
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" [disabled]="!feedbackForm.form.valid">Submit</button>
+    </form>
+    <button (click)="adminhome()">AdminHome</button>
+
+</div>
