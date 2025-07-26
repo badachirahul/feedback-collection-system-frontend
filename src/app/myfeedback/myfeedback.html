@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Feedback Form</h2>
+  <h2 class="feedback-heading">📝 Feedback Form</h2>
 
   <form #feedbackForm="ngForm" (ngSubmit)="onSubmit()">
     <!-- Name -->
@@ -12,16 +12,7 @@
     <div class="rating-slider-group">
       <label for="rating">Rating:</label>
       <div class="slider-row">
-        <input
-          type="range"
-          id="rating"
-          name="Rating"
-          [(ngModel)]="feedback.rating"
-          min="1"
-          max="5"
-          step="1"
-          required
-        />
+        <input type="range" id="rating" name="Rating" [(ngModel)]="feedback.rating" min="1" max="5" step="1" required />
         <span class="slider-value">{{ feedback.rating }}</span>
       </div>
       <div class="slider-labels">
@@ -42,5 +33,5 @@
     <!-- Submit -->
     <button type="submit" [disabled]="!feedbackForm.form.valid">Submit</button>
   </form>
-  <button (click)="adminhome()">AdminHome</button>
 </div>
+<button id="admin-home-button" (click)="adminhome()">Admin View</button>

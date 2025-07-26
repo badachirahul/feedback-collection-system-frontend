@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Feedbackservice } from '../feedbackservice';
 
 @Component({
@@ -10,21 +10,27 @@ import { Feedbackservice } from '../feedbackservice';
 export class Adminhome implements OnInit {
 
   feedBackList:any;
-  constructor(private feedbackService:Feedbackservice){}
+  constructor(
+    private feedbackService:Feedbackservice,
+    private cdr:ChangeDetectorRef
+      
+  ){}
+
 ngOnInit(): void {
     
 }
-getdata()
-{
-this.getAllFeedbacks();
-}
+// getdata()
+// {
+// this.getAllFeedbacks();
+// }
 getAllFeedbacks()
 {
   this.feedbackService.getAllFeedbacks().subscribe(
       (data:any)=>
       {
-        console.log(data);
+        //console.log(data);
         this.feedBackList=data;
+        this.cdr.detectChanges();
       }
     )
 }

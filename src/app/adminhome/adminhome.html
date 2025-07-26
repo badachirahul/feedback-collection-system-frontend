@@ -1,5 +1,5 @@
 <div class="admin-table-container">
-  <button (click)="getdata()">Get Feedbacks</button>
+  <button (click)="getAllFeedbacks()">Get Feedbacks</button>
 
   <table *ngIf="feedBackList && feedBackList.length > 0">
     <thead>
@@ -18,7 +18,7 @@
         <td>{{feedback.rating}}</td>
         <td>{{feedback.reviewed}}</td>
         <td>
-          <input type="submit" (click)="updateReview(feedback.id)" value="Update Review" />
+          <input type="submit" (click)="updateReview(feedback.id)" value="Update" />
         </td>
       </tr>
     </tbody>

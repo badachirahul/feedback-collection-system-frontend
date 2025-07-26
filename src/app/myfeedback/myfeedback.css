@@ -5,7 +5,10 @@
   padding: 2rem 2.5rem 1.5rem 2.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
+  position: relative;
+  /* Add this */
 }
+
 
 form div {
   margin-bottom: 1.2rem;
@@ -86,12 +89,65 @@ input[type="range"] {
 button[type="submit"] {
   width: 100%;
   margin-top: 0.5rem;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.6em 0;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
 }
 
-button + button {
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background: #1565c0;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+  outline: none;
+}
+
+button+button {
   margin-top: 1rem;
   width: 100%;
   background: #455a64;
+}
+
+#admin-home-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 0.6em 1.2em;
+  border-radius: 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+#admin-home-button:hover,
+#admin-home-button:focus {
+  background: #1565c0;
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.22);
+  transform: translateY(-2px) scale(1.03);
+  outline: none;
+}
+
+.feedback-heading {
+  background: #1976d2;
+  color: #fff;
+  padding: 0.5em 0;
+  border-radius: 6px;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
 }
 
 @media (max-width: 600px) {
